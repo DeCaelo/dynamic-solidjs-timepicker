@@ -1,7 +1,8 @@
 import { Accessor, Setter, createSignal, onCleanup, onMount } from 'solid-js';
+import { TimePickerDropdown } from './dropdown';
 import { TimePickerInput } from './input';
 import { Time } from './types';
-import { secondsToTime } from './utils';
+import { secondsToTime, timeToSeconds } from './utils';
 
 type PickerProps = {
   time: Accessor<number>;
@@ -36,7 +37,7 @@ export function Picker(props: PickerProps) {
         time={time}
         setTime={setTime}
       />
-      {/* <TimePickerDropdown
+      <TimePickerDropdown
         isOpen={isOpen}
         time={time}
         setTime={setTime}
@@ -44,7 +45,7 @@ export function Picker(props: PickerProps) {
           props.setTime(timeToSeconds(time()));
           setIsOpen(false);
         }}
-      /> */}
+      />
     </div>
   );
 }
